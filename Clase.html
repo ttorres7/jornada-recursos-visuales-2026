@@ -545,6 +545,171 @@
           filter: drop-shadow(0 0 6px rgba(77, 231, 255, 0.6)); }
   .neon.thin { stroke-width:2.4; }
   .neon .accent { stroke:#B78CFF; filter: drop-shadow(0 0 6px rgba(183, 140, 255, 0.6));}
+
+  /* ============================================================
+     SLIDE 4 — ALQUIMIA DEL CONTENIDO (Primera Hora · Método)
+  ============================================================ */
+  .alquimia .ribbon {
+    position:absolute; top:64px; left:80px; right:80px; z-index:3;
+    display:flex; align-items:center; justify-content:space-between;
+    font-family:'JetBrains Mono', monospace;
+    font-size:18px; letter-spacing:0.22em; text-transform:uppercase;
+    color:#8C8AC7;
+  }
+  .alquimia .ribbon .back {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:10px 18px;
+    border:1px solid rgba(0, 230, 255, 0.35);
+    border-radius:999px;
+    color:#4DE7FF;
+    background: rgba(0, 230, 255, 0.06);
+    cursor:pointer;
+    text-decoration:none;
+  }
+  .alquimia .heading {
+    position:absolute; top:158px; left:80px; right:80px; z-index:2;
+  }
+  .alquimia .heading .kicker {
+    color:#4DE7FF;
+    font-family:'JetBrains Mono', monospace;
+    font-size:22px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase;
+    margin:0 0 12px;
+  }
+  .alquimia .heading h2 {
+    margin:0;
+    font-size:66px; line-height:1.02; font-weight:700; letter-spacing:-0.025em;
+    color:#fff;
+  }
+  .alquimia .heading h2 em {
+    font-style:normal;
+    background: linear-gradient(90deg, #4DE7FF 0%, #B78CFF 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .alquimia .heading .sub {
+    margin-top:12px;
+    font-size:17px; color:#B8B5E8; line-height:1.55;
+    max-width:1060px;
+  }
+
+  .alq-cols {
+    position:absolute; top:386px; left:80px; right:80px; bottom:100px;
+    display:grid;
+    grid-template-columns: 1fr 40px 1fr;
+    align-items:stretch;
+    z-index:1;
+  }
+
+  /* Column panel containers — tenue grouping wrapper */
+  .alq-col-panel {
+    background: rgba(77, 231, 255, 0.03);
+    border: 1px solid rgba(77, 231, 255, 0.09);
+    border-radius:20px;
+    padding: 26px 28px;
+    display:flex; flex-direction:column; gap:12px;
+  }
+  .alq-col-panel.caps {
+    background: rgba(183, 140, 255, 0.03);
+    border-color: rgba(183, 140, 255, 0.09);
+  }
+
+  .alq-col-title {
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase;
+    color:#4DE7FF;
+    display:flex; align-items:center; gap:10px;
+    flex-shrink:0;
+    margin-bottom:2px;
+  }
+  .alq-col-panel.caps .alq-col-title { color:#C9A8FF; }
+  .alq-col-title::before {
+    content:""; width:6px; height:6px; border-radius:50%;
+    background:#4DE7FF; box-shadow:0 0 10px #4DE7FF;
+    flex-shrink:0;
+  }
+  .alq-col-panel.caps .alq-col-title::before {
+    background:#C9A8FF; box-shadow:0 0 10px #C9A8FF;
+  }
+
+  /* Vertical divider between panels */
+  .alq-divider-wrap {
+    display:flex; align-items:center; justify-content:center;
+  }
+  .alq-divider {
+    width:2px; height:88%;
+    background: linear-gradient(180deg, transparent 4%, rgba(77, 231, 255, 0.38) 28%, rgba(183, 140, 255, 0.38) 72%, transparent 96%);
+    border-radius:1px;
+  }
+
+  /* Individual content blocks inside panels */
+  .alq-block {
+    position:relative;
+    background: linear-gradient(180deg, rgba(77, 231, 255, 0.055) 0%, rgba(14, 6, 51, 0.48) 100%);
+    border:1.5px solid rgba(77, 231, 255, 0.18);
+    border-radius:14px;
+    padding: 16px 18px 16px 74px;
+    flex:1;
+    overflow:hidden;
+    opacity:0;
+    transform: translateX(-22px);
+    animation: stepIn 0.72s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .alq-block.cap {
+    background: linear-gradient(180deg, rgba(183, 140, 255, 0.055) 0%, rgba(14, 6, 51, 0.48) 100%);
+    border-color: rgba(183, 140, 255, 0.18);
+  }
+
+  .alq-block .alq-icon {
+    position:absolute; left:14px; top:50%; transform:translateY(-50%);
+    width:44px; height:44px;
+    border-radius:50%;
+    background: rgba(14, 6, 51, 0.92);
+    border: 1.5px solid rgba(77, 231, 255, 0.45);
+    display:flex; align-items:center; justify-content:center;
+    color:#4DE7FF;
+    box-shadow: 0 0 18px rgba(77, 231, 255, 0.22);
+  }
+  .alq-block .alq-icon::after {
+    content:""; position:absolute; inset:-6px;
+    border:1px dashed rgba(77, 231, 255, 0.22);
+    border-radius:50%;
+    animation: spin 12s linear infinite;
+  }
+  .alq-block .alq-icon svg { width:20px; height:20px; }
+
+  .alq-block.cap .alq-icon {
+    border-color: rgba(183, 140, 255, 0.45);
+    color:#C9A8FF;
+    box-shadow: 0 0 18px rgba(183, 140, 255, 0.22);
+  }
+  .alq-block.cap .alq-icon::after { border-color: rgba(183, 140, 255, 0.22); }
+
+  .alq-block .alq-num {
+    position:absolute; right:10px; bottom:2px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:62px; font-weight:700; line-height:1;
+    color: rgba(77, 231, 255, 0.065);
+    letter-spacing:-0.04em;
+    pointer-events:none; user-select:none;
+  }
+  .alq-block.cap .alq-num { color: rgba(183, 140, 255, 0.065); }
+
+  .alq-block h4 {
+    margin: 0 0 5px;
+    font-size:19px; font-weight:700; color:#fff; letter-spacing:-0.01em; line-height:1.2;
+  }
+  .alq-block p {
+    margin:0;
+    font-size:14px; color:#B8B5E8; line-height:1.5;
+  }
+
+  .alquimia .foot {
+    position:absolute; left:80px; right:80px; bottom:32px; z-index:3;
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size:14px; letter-spacing:0.18em; text-transform:uppercase;
+    color:#6C6BA0;
+  }
+  .alquimia .foot .sep { flex:1; height:1px; background: linear-gradient(90deg, rgba(108,107,160,0.35), transparent); margin: 0 20px;}
 </style>
 </head>
 <body>
@@ -613,7 +778,7 @@
       </div>
 
       <!-- HOUR 2 -->
-      <div class="hour" data-goto="3">
+      <div class="hour" data-goto="4">
         <span class="num">02</span>
         <div class="icon">
           <!-- Eye with rays -->
@@ -651,7 +816,7 @@
       </div>
 
       <!-- HOUR 3 -->
-      <div class="hour" data-goto="4">
+      <div class="hour" data-goto="5">
         <span class="num">03</span>
         <div class="icon">
           <!-- picture + brush + camera small -->
@@ -767,8 +932,131 @@
     </div>
   </section>
 
-  <!-- ============ SLIDE 4 — HOUR 2 DETAIL ============ -->
-  <section class="slide detail bg-night" data-screen-label="04 Segunda Hora">
+  <!-- ============ SLIDE 4 — ALQUIMIA DEL CONTENIDO ============ -->
+  <section class="slide alquimia bg-night" data-screen-label="04 Primera Hora · Método">
+    <div class="ribbon">
+      <a class="back" data-goto="1">← Agenda</a>
+      <span>Primera Hora · Método</span>
+    </div>
+
+    <div class="heading">
+      <p class="kicker">El Método</p>
+      <h2>La <em>Alquimia</em> del Contenido.</h2>
+      <p class="sub">El método para pasar de la acumulación de información a la creación de valor. Curar antes de diseñar. Destilar para un propósito visual específico.</p>
+    </div>
+
+    <div class="alq-cols">
+
+      <!-- LEFT PANEL — Proceso de Transformación -->
+      <div class="alq-col-panel">
+        <div class="alq-col-title">El Proceso de Transformación</div>
+
+        <div class="alq-block" style="animation-delay:0.15s">
+          <div class="alq-icon">
+            <!-- Embudo / Filtro -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+            </svg>
+          </div>
+          <span class="alq-num">01</span>
+          <h4>Curar antes de Crear</h4>
+          <p>La creación sin curación previa solo decora errores con colores bonitos.</p>
+        </div>
+
+        <div class="alq-block" style="animation-delay:0.38s">
+          <div class="alq-icon">
+            <!-- Alambique / Destilación -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 3h6"/>
+              <path d="M9 3v5l-4 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-4-9V3"/>
+              <line x1="6" y1="14" x2="18" y2="14"/>
+            </svg>
+          </div>
+          <span class="alq-num">02</span>
+          <h4>Destilar vs. Resumir</h4>
+          <p>Destilar es reorganizar el contenido para un nuevo propósito, no solo achicar el original.</p>
+        </div>
+
+        <div class="alq-block" style="animation-delay:0.61s">
+          <div class="alq-icon">
+            <!-- Documento → Cápsula -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="12" y1="18" x2="12" y2="12"/>
+              <line x1="9" y1="15" x2="15" y2="15"/>
+            </svg>
+          </div>
+          <span class="alq-num">03</span>
+          <h4>El Objetivo del Taller</h4>
+          <p>Transformar documentos en cápsulas listas para convertirse en recursos visuales potentes.</p>
+        </div>
+      </div>
+
+      <!-- VERTICAL DIVIDER -->
+      <div class="alq-divider-wrap">
+        <div class="alq-divider"></div>
+      </div>
+
+      <!-- RIGHT PANEL — Cápsulas de Salida -->
+      <div class="alq-col-panel caps">
+        <div class="alq-col-title">Las Cápsulas de Salida</div>
+
+        <div class="alq-block cap" style="animation-delay:0.27s">
+          <div class="alq-icon">
+            <!-- Gráfico de barras -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+              <line x1="2" y1="20" x2="22" y2="20"/>
+            </svg>
+          </div>
+          <span class="alq-num">A</span>
+          <h4>Cápsula A: Datos para Infografía</h4>
+          <p>Información cuantitativa y cualitativa estructurada para visualización rápida.</p>
+        </div>
+
+        <div class="alq-block cap" style="animation-delay:0.50s">
+          <div class="alq-icon">
+            <!-- Framework: cajas conectadas -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="6" height="5" rx="1"/>
+              <rect x="16" y="2" width="6" height="5" rx="1"/>
+              <rect x="9" y="17" width="6" height="5" rx="1"/>
+              <line x1="8" y1="4.5" x2="16" y2="4.5"/>
+              <line x1="12" y1="7" x2="12" y2="17"/>
+            </svg>
+          </div>
+          <span class="alq-num">B</span>
+          <h4>Cápsula B: Framework para Presentación</h4>
+          <p>Estructura lógica y conceptual para guiar una narrativa presencial.</p>
+        </div>
+
+        <div class="alq-block cap" style="animation-delay:0.73s">
+          <div class="alq-icon">
+            <!-- Bocadillo de cómic / narrativa -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <span class="alq-num">C</span>
+          <h4>Cápsula C: Narrativa para Cómic</h4>
+          <p>Destilación de conceptos en una secuencia de historia visual y diálogos.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="foot">
+      <span>04 · Primera Hora · Método</span>
+      <span class="sep"></span>
+      <span>Siguiente: Traducción Visual →</span>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 5 — HOUR 2 DETAIL ============ -->
+  <section class="slide detail bg-night" data-screen-label="05 Segunda Hora">
     <div class="ribbon">
       <a class="back" data-goto="1">← Agenda</a>
       <span>Segunda Hora · 02 / 03</span>
@@ -852,14 +1140,14 @@
     </div>
 
     <div class="foot">
-      <span>04 · Segunda Hora</span>
+      <span>05 · Segunda Hora</span>
       <span class="sep"></span>
       <span>Siguiente: Dirección de Arte →</span>
     </div>
   </section>
 
   <!-- ============ SLIDE 5 — HOUR 3 DETAIL ============ -->
-  <section class="slide detail bg-night" data-screen-label="05 Tercera Hora">
+  <section class="slide detail bg-night" data-screen-label="06 Tercera Hora">
     <div class="ribbon">
       <a class="back" data-goto="1">← Agenda</a>
       <span>Tercera Hora · 03 / 03</span>
@@ -932,7 +1220,7 @@
     </div>
 
     <div class="foot">
-      <span>05 · Tercera Hora</span>
+      <span>06 · Tercera Hora</span>
       <span class="sep"></span>
       <span>¡Listos para comenzar!</span>
     </div>
